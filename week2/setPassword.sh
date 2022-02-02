@@ -1,9 +1,11 @@
 #!/bin/bash
-read -p "type foldername:" folder_var
+read -p "create folder:" folder_var
+mkdir $folder_var
 read -sp "Enter Password:" Pass_var
 echo
 echo "Entered foldername: $folder_var"
+hash="secret.txt"
 echo "Entered password: $Pass_var"
-hash_var=$(echo $Pass_var | sha256sum)
-hashfile="secret.txt"
-myvariable=$(cat "$hashfile")
+hash=$(echo $Pass_var | sha256sum)
+myvariable= cat "$hash"
+exit 0
