@@ -1,4 +1,7 @@
 #!/bin/bash
+#Author: Abu SArder
+#Date: 15/02/2022
+# Creating Megamenu which contain folders and files
 echo " MEGA MENU"
 echo #blankline
 echo '1. Create a folder'

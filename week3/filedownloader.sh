@@ -1,4 +1,9 @@
 #!/bin/bash
+#!/bin/bash
+#Author: Abu SArder
+#Date: 17/02/2022
+# Download file 
+
 read -p "Input the download URL or exit to quit: " url
 
 if [ "$url" == "exit" ];then

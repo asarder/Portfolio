@@ -1,4 +1,9 @@
 #!/bin/bash 
+#!/bin/bash
+#Author: Abu SArder
+#Date: 16/02/2022
+# showing colors in different arithmetical terms
+
 echo "Welcome to Bash Calculation"
 echo
 read -p 'Enter first numbers:' x
