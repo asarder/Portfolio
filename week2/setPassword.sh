@@ -1,10 +1,13 @@
 #!/bin/bash
-read -p "create folder:" folder_name
-mkdir $folder_name
-read -sp "Enter Password:" Pass_var
-echo
-echo "Entered foldername: $folder_name"
-echo "Entered password: $Pass_var"
-echo $Pass_var | sha256sum >./$folder_name/secret.txt
+#Author: Abu Sarder
+#Date 28/01/2022i
+#A user can type a secrete password
 
+read -p "type folder name: " # asking user to type folder name
+read -sp "Enter Password: " pass_var 
+echo #to make this line blank
+echo $pass_var | sha256sum >./secret.txt
+secretPassword=secret.txt
+Checkpassword=$(cat "$secretPassword")
 exit 0
+
