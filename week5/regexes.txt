@@ -1,0 +1,240 @@
+#!/bin/bash
+
+#Author: Abu Sarder
+#Date:25/02/2022
+# Using grepp statements to bring out the folowing task
+
+#Make sed color Purple to highlight in the out put
+
+export  GREP_COLOR=35
+
+#writing all the texts through built in f command to regexes.txt
+
+find . -type f -exec cat {} + > regexes.txt 
+
+ 
+# to show all sed statements
+
+echo "show all sed statements"
+
+grep --color -i sed regexes.txt
+
+ #to show lines that start with 'm'
+
+echo "show lines that start with 'm'"
+
+grep --color -i "^m" regexes.txt
+
+ 
+
+#Reference: https://askubuntu.com/questions/538730/how-to-grep-for-groups-of-n-digits-but-no-more-than-n
+
+#to show all lines got three digit numbers
+
+echo "shows all lines that contain three digit numbers"
+
+grep --color -i -P '(?<!\d)\d{3}(?!\d)' regexes.txt
+
+ 
+# Rference: https://stackoverflow.com/questions/33579606/is-it-possible-to-show-grep-output-of-3-words-of-the-search-keyword
+
+echo "show all lines with echo statements with atleast three words"
+
+grep -P 'echo .*\"[a-zA-Z]+\s.+[a-zA-Z]+\s.+[a-zA-Z]+\s.+"'  regexes.txt
+
+ # shows all lines that would make good password.
+
+# check each line from data.txt as a possible password
+
+# run each line/possible password against various passwor strength
+
+# criteria
+
+# check user input against various password strength requirements
+
+ 
+# varied from https://stackoverflow.com/questions/1559751/regex-to-make-sure-that-the-string-contains-at-least-one-lower-case-char-upper.
+
+# read each line in the data file
+
+# varied from https://www.tecmint.com/linux-grep-commands-character-classes-bracket-expressions/
+
+while read secret_password; do
+
+len="${#secret_password}"
+
+ 
+# applying complexity checks per line
+
+# considering calling as function or script
+
+ 
+if test $len -ge 8 ; then
+
+    echo "The line being checked for password complexity is= $secret_password"
+
+    echo "$secret_password" | grep -q [0-9]
+
+    if test $? -eq 0 ; then
+
+    echo "$secret_password" | grep -q [A-Z]
+
+    if test $? -eq 0 ; then
+
+    echo "$secret_password" | grep -q [a-z]
+
+    if test $? -eq 0 ; then
+
+    echo "$secret_password" | grep -q [$,@,#,%]
+
+    if test $? -eq 0 ; then
+
+    echo "Thank you.  Password strength accepted."
+
+        else
+
+        echo "weak password include special chars"
+
+        fi
+
+        else
+
+        echo "weak password include lower case char"
+
+        fi
+
+        else
+
+        echo "weak password include capital char"
+
+        fi
+
+        else
+
+        echo "please include the numbers in password it is weak password"
+
+        fi
+        
+    else
+
+    echo "password length should be greater than or equal 8 hence weak password"
+
+fi
+
+done < regexes.txt#!/bin/bash
+#Author: Abu Sarder
+#Date:26/02/2022
+# reformat the output
+
+echo "Google Server IPs:"
+
+awk 'BEGIN {
+
+    FS=":";
+
+    print "________________________________";
+
+    print "| \033[34mServer Type\033[0m | \033[34mIP            \033[0m |";
+
+}
+
+{
+
+    printf("| \033[33m%-11s\033[0m | \033[35m%-14s\033[0m |\n", $1, $2);
+
+}
+
+END {
+
+    print("________________________________");
+
+}' input.txt
+#Reference: Week5.4 https://blackboard.ecu.edu.au/webapps/blackboard/execute/displayLearningUnit?course_id=_662967_1&content_id=_8274272_1
+DNS:8.8.8.8
+
+DNS2:8.8.4.4
+
+BOT:64.68.90.1
+
+WEB:216.58.200.110root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:109::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+sshd:x:107:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:108:114::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+systemd-coredump:x:999:999:systemd Core Dumper:/:/sbin/nologin
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+dnsmasq:x:110:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+rtkit:x:111:118:RealtimeKit,,,:/proc:/usr/sbin/nologin
+usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+avahi:x:113:119:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+cups-pk-helper:x:114:120:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+saned:x:115:122::/var/lib/saned:/usr/sbin/nologin
+colord:x:116:123:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:117:124::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:118:125:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+gdm:x:119:127:Gnome Display Manager:/var/lib/gdm3:/bin/false
+xrdp:x:120:129::/var/run/xrdp:/usr/sbin/nologin
+tcpdump:x:121:131::/nonexistent:/usr/sbin/nologin
+student:x:1000:1001:Ubuntu:/home/student:/bin/bash
+omi:x:997:997::/home/omi:/bin/false
+omsagent:x:996:998:OMS agent:/var/opt/microsoft/omsagent/run:/bin/bash
+nxautomation:x:995:995:nxOMSAutomation:/home/nxautomation/run:/bin/bash
+tss:x:122:133:TPM software stack,,,:/var/lib/tpm:/bin/false
+#!/bin/bash
+#Abu Sarder
+#Date : 26/02/2022
+
+#formated out put from /etc/passwd
+
+echo " Formated out put from /etc/passwd"
+
+cat /etc/passwd >input2.txt #writing /etc/passwd data to input.txt
+
+# writing awk for out put formated data from \etc\passwd
+
+awk '
+BEGIN {
+
+    FS=":";
+    
+    print "_________________________________________________________________________________________________";
+
+    print "| \033[34mUser Name:-     \033[0m | \033[34mUser ID\033[0m | \033[34mGroup ID\033[0m | \033[34mHome Directory:-               \033[0m | \033[34mShell              \033[0m |";
+
+    print "_________________________________________________________________________________________________";
+}
+{
+    printf("| \033[33m%-16s\033[0m | \033[35m%-7s\033[0m | \033[36m%-8s\033[0m | \033[37m%-31s\033[0m | \033[38m%-19s\033[0m |\n", $1, $3, $4, $6, $7);
+
+}
+
+END{
+
+    print("_________________________________________________________________________________________________");
+
+}' input2.txt
+
+#Reference: Week5.4 task from Black Board 
