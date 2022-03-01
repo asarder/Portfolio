@@ -6,7 +6,6 @@
 
 #curl website to output.txt
 
-
 curl=$(which curl)
 outfile="output.txt"
 url="https://blog.cybercx.com.au/log4j-critical-vulnerability-cve-2021-44228-planning-for-the-holidays"

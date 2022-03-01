@@ -35,5 +35,4 @@ with open("wordlist.txt", "r") as wordlist:
             break
         
 
-
 #Reference Week 6.5 ECU online unit tasks

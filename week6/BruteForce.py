@@ -28,6 +28,4 @@ endTime = time.time()
 elapsedTime = endTime - startTime
 print("It took", elapsedTime, "second to crack the password")
 
-
-
 #Reference: Brute Force Password Cracker : https://www.youtube.com/watch?v=P5Lt8J3_ZnI
