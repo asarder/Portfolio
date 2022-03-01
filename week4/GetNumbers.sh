@@ -1,6 +1,8 @@
 #!/bin/bash
 
-
+#!/bin/bash
+#Author: Abu Sarder
+#Date: 21/02/2022
 
 #This function prints a given error
 
