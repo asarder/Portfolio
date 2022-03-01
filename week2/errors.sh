@@ -1,5 +1,8 @@
 #!/bin/bash
+#Author: Abu Sarder
+#Date: 26/01/2022
 
+#Finding the password right or wrong
 
 secret=shhh #Don't tell anyone!
 
