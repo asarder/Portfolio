@@ -23,7 +23,7 @@ function dump_wpage() {
 
 function strip_html() {
 
-    grep "<p>" $outfile | sed 's/<[^>]*>//g'  > temp.txt && cp temp.txt $outfile 
+    grep "<p>" $outfile | sed 's/<[^>]*>//g' | sed 's/&nbsp;//' > temp.txt && cp temp.txt $outfile 
 }
 
 #Geting the main data ssof out file 
