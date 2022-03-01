@@ -1,0 +1,15 @@
+The Log4j/Log4Shell incident is continuing to evolve. We have seen both blue teams and red teams changing and improving their techniques to adapt.
+Many of the initial mitigations (like initial hot-fix WAF rules) and assumptions (like how this didn’t affect more recent versions of Java) have since been broken or changed. We’ve seen the Apache Log4j project issue a subsequent update to further mitigate the issue.
+All of this is expected. These vulnerabilities are serious and likely to have a long tail spanning into 2022, and everyone needs to start planning now to deal with disruption and changes over the holiday period.
+&nbsp;
+While this is a serious incident that will continue over the holiday period, we need to keep in mind that your people—and especially people who have been in COVID-19 related lockdowns—need time off.
+Ways you can help include:
+&nbsp;
+There are many indicator of compromise (IOC) lists in circulation, containing IP addresses associated with malicious Log4J activity. It is important if you are using these IOCs for detection or alerting over the holiday period, you understand what they are alerting on, their source, and their confidence levels.
+For example, many of the IP addresses scanning for vulnerable applications and systems belong to security companies, who are assisting their customers to understand their internet-facing footprint. It is not practical to respond to alerts from benign scanning activity, and it can be counter-productive to block scanning from known security companies, as it means you won’t be able to use their tools to identify issues in your infrastructure.
+If you do have access to high-confidence indicators--either from a trust group, commercial product, or government service--strongly consider how you can make the most effective use of these, and what your response will be if there is a detection in your environment.
+There shouldn’t be a single one-size-fits-all response either: depending on what threat actor the indicator is associated with and what their motivations are, you may need to take different actions, or escalate quicker.
+It also makes a difference where the indicator or alert was seen: was this a highly-critical system that is known to be vulnerable (where mitigations were applied, but the system can’t be patched yet), or a low-critical application that doesn’t run Java?
+Understanding how IOCs are used in your organisation is important, so that you’re not facing burnt-out staff over the holidays.
+&nbsp;
+&nbsp;

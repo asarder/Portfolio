@@ -1,5 +1,8 @@
-
 #!/bin/bash
+
+#Author: Abu Sarder
+#ate: 15/02/2022
+# Creating folder week4, week5, week6
 
 #If there aren't two arguments to the script
 
@@ -24,3 +27,4 @@ do
     mkdir "week$i"
 
 done
+
