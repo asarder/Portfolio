@@ -12,7 +12,7 @@ echo '5. Create week folder'
 echo '6. Check filenames'
 echo '7. Download a file'
 echo '8. Exit'
-read -rp "Selet an opption: " number
+read -rp "Select an opption: " number
 echo #blankline
 case $number in
     "1" )
@@ -22,9 +22,9 @@ case $number in
     "3" )
         ./setPassword.sh ;;
     "4" )
-        ./bashCalculator.sh ;;
+        ./calculator.sh ;;
     "5" )
-        /home/student/scripts/portfolio/megafoldermaker.sh ;;
+        /home/portfolio/megafoldermaker.sh ;;
     "6" )
         \* ;;
     "7" )
